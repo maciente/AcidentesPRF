@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Acidentes PRF</title>
+        <title>Inserir Acidente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -17,7 +17,7 @@
                 <h2>Bem-vindo ${ usuario.nome }</h2>  
             </c:otherwise>
         </c:choose>
-        <form method="POST" action="/AcidentesPRF/InsereAcidente">
+        <form method="POST" action="/AcidentesPRF/InserirAcidente">
             <div align="center">
             <h3>Dados do Acidente</h3>
             <p>Número de mortos: <input type="text" name="mortos" size="3"></p>

@@ -30,7 +30,7 @@ public class LoginAuthentication extends HttpServlet {
             usuario = dao.login(cpf, senha);
             if (cpf.equals(usuario.getCpf())) {
                 session.setAttribute("usuario", usuario);
-                RequestDispatcher r = request.getRequestDispatcher("/insereAcidente.jsp");
+                RequestDispatcher r = request.getRequestDispatcher("/index.jsp");
                 r.forward(request, response);
                 
             } else {

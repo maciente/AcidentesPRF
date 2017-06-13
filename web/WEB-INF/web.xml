@@ -8,6 +8,10 @@
         <servlet-name>LoginAuthentication</servlet-name>
         <servlet-class>controle.LoginAuthentication</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletControle</servlet-name>
+        <servlet-class>controle.ServletControle</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InsereAcidente</servlet-name>
         <url-pattern>/InsereAcidente</url-pattern>
@@ -16,12 +20,16 @@
         <servlet-name>LoginAuthentication</servlet-name>
         <url-pattern>/LoginAuthentication</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletControle</servlet-name>
+        <url-pattern>/ServletControle</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

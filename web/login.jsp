@@ -15,8 +15,8 @@
             <p>cpf: <input type = "text" name = "cpf" size = "11"></p>
             <p>Senha: <input type = "password" name = "senha" size = "12"></p>
             <p>
-                <input type = "submit" name = "Submit" value = "Submit">
-                <input type = "reset" value = "Reset">
+                <input type = "submit" value = "Entrar">
+                <input type = "reset" value = "Resetar">
             </p>
         </form>
         </div>
