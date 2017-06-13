@@ -19,13 +19,19 @@
             <c:otherwise>
                 <h2>Bem-vindo ${ usuario.nome }</h2>  
             </c:otherwise>
+
         </c:choose>
         <form method="POST" action="/AcidentesPRF/InserirUsuario">
             <div align="center">
                 <h3>Dados do Usuário</h3>
                 <p>Nome: <input type="text" name="nome" size="40"></p>
                 <p>CPF: <input type="text" name="cpf" size="11"></p>
-                <p>Função: <input type="text" name="funcao" size="40"></p>
+                <p>Função: 
+                    <select name="funcao"> 
+                        <option value="administrador" >Administrador</option> 
+                        <option value="operador">Operador</option> 
+                        <option value="usuario">Usuário Comum</option> 
+                    </select></p>
                 <p>Senha: <input type="password" name="senha" size="40"></p>
             </div>
             <div align="center">
