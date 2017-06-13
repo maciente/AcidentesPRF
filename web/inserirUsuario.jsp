@@ -25,7 +25,7 @@
             <div align="center">
                 <h3>Dados do Usuário</h3>
                 <p>Nome: <input type="text" name="nome" size="40"></p>
-                <p>CPF: <input type="text" name="cpf" size="11"></p>
+                <p>CPF: <input type="text" name="cpf" size="40"></p>
                 <p>Função: 
                     <select name="funcao"> 
                         <option value="administrador" >Administrador</option> 
