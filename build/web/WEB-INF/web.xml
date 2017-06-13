@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>InsereAcidente</servlet-name>
-        <servlet-class>controle.InsereAcidente</servlet-class>
+        <servlet-name>InserirAcidente</servlet-name>
+        <servlet-class>controle.InserirAcidente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginAuthentication</servlet-name>
@@ -12,9 +12,17 @@
         <servlet-name>ServletControle</servlet-name>
         <servlet-class>controle.ServletControle</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InserirUsuario</servlet-name>
+        <servlet-class>controle.InserirUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscarUsuario</servlet-name>
+        <servlet-class>controle.BuscarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>InsereAcidente</servlet-name>
-        <url-pattern>/InsereAcidente</url-pattern>
+        <servlet-name>InserirAcidente</servlet-name>
+        <url-pattern>/InserirAcidente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginAuthentication</servlet-name>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>ServletControle</servlet-name>
         <url-pattern>/ServletControle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InserirUsuario</servlet-name>
+        <url-pattern>/InserirUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarUsuario</servlet-name>
+        <url-pattern>/BuscarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

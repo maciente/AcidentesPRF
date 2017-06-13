@@ -62,13 +62,14 @@ public class UsuarioDAO {
         return (ArrayList<Usuario>) sessao.createQuery("from Usuario").list();
     }
 
-    public Usuario buscar(String cpf) {
+    public ArrayList<Usuario> buscarPorCpf(String cpf) {
         ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where cpf = '" + cpf + "'").list();
-        Usuario usuario = new Usuario();
-        for (Usuario u : usuarios) {
-            usuario = u;
-        }
-        return usuario;
+        return usuarios;
+    }
+    
+    public ArrayList<Usuario> buscarPorNome(String nome) {
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where nome like '" + nome + "'").list();
+        return usuarios;
     }
 
     public void excluir(String cpf) {

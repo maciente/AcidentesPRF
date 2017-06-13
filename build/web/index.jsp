@@ -10,6 +10,9 @@
         <title>Acidentes PRF</title>
     </head>
     <body>
+        <div align="right">
+            <a href="/AcidentesPRF/logout.jsp"> logout </a>
+        </div>
         <div align="center">
             <c:choose>
                 <c:when test="${ usuario eq null }">

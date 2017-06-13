@@ -12,7 +12,7 @@ import mapeamento.Condicao;
 import mapeamento.Data;
 import mapeamento.Local;
 
-public class InsereAcidente extends HttpServlet {
+public class InserirAcidente extends HttpServlet {
 
     private Acidente acidente;
     private AcidenteDAO aDao;
@@ -134,7 +134,7 @@ public class InsereAcidente extends HttpServlet {
             lDao.salvar(local);
             cDao.salvar(condicao);
             out.println("Acidente " + acidente.getId() + " salvo");
-            out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-1)\">");
+            out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-2)\">");
         } catch (Exception ex) {
             out.println("Error: " + ex.getMessage());
             out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-1)\">");
