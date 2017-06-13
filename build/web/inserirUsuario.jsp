@@ -1,46 +1,54 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Inserir Usu√°rio</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    </head>
-    <body align="center">
-        <div align="right">
-            <a href="/AcidentesPRF/logout.jsp"> logout </a>
+<%@include file="/header.jsp" %>
+<!--<div class="mensagme text-center col-md-15">
+    
+</div>-->
+<div class="col-md-15 col-md-offset-0">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Dados do Usu·rio</h3>
         </div>
-        <c:choose>
-            <c:when test="${ usuario eq null }">
-                <jsp:forward page="login.jsp" />
-            </c:when>
-            <c:otherwise>
-                <h2>Bem-vindo ${ usuario.nome }</h2>  
-            </c:otherwise>
-
-        </c:choose>
-        <form method="POST" action="/AcidentesPRF/InserirUsuario">
-            <div align="center">
-                <h3>Dados do Usu√°rio</h3>
-                <p>Nome: <input type="text" name="nome" size="40"></p>
-                <p>CPF: <input type="text" name="cpf" size="40"></p>
-                <p>Fun√ß√£o: 
-                    <select name="funcao"> 
-                        <option value="administrador" >Administrador</option> 
-                        <option value="operador">Operador</option> 
-                        <option value="usuario">Usu√°rio Comum</option> 
-                    </select></p>
-                <p>Senha: <input type="password" name="senha" size="40"></p>
-            </div>
-            <div align="center">
-                <p>
-                    <input type="submit" value="Salvar">
-                    <input type="reset" value="Resetar">
-                </p> 
-            </div>
-        </form>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
-</html>
+        <div class="panel-body">
+            <form class="form-horizontal" method="POST" action="/AcidentesPRF/InserirUsuario">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">*Nome</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="nome">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">*CPF</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="cpf">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">*FunÁ„o</label>
+                    <div class="col-md-9">
+                        <select class="form-control" name="funcao"> 
+                            <option value="administrador" >Administrador</option> 
+                            <option value="operador">Operador</option> 
+                            <option value="usuario">Usu·rio Comum</option> 
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">*Senha</label>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" name="senha">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-3">
+                        <p class="text-danger">(*) campos de preenchimento obrigatÛrio</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 col-md-offset-8">
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%@include file="/footer.jsp" %>

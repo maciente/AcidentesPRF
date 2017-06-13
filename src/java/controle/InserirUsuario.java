@@ -1,12 +1,12 @@
 package controle;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mapeamento.Usuario;
 
 public class InserirUsuario extends HttpServlet {
@@ -18,8 +18,7 @@ public class InserirUsuario extends HttpServlet {
     private String funcao;
     private String senha;
 
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         // pega parâmetros do request
@@ -35,18 +34,17 @@ public class InserirUsuario extends HttpServlet {
         usuario.setNome(nome);
         usuario.setFuncao(funcao);
         usuario.setSenha(senha);
-        
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+
+        HttpSession session = request.getSession();
         try {
             dao.salvar(usuario);
-            out.println("usuario " + usuario.getNome() + " salvo");
-            out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-2)\">");
+            RequestDispatcher r = request.getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
         } catch (Exception ex) {
-            out.println("Error: " + ex.getMessage());
-            out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-1)\">");
+            session.setAttribute("erro", ex);
+            RequestDispatcher r = request.getRequestDispatcher("/erro.jsp");
+            r.forward(request, response);
         }
-        out.close();
     }
 
 }

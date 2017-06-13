@@ -3,10 +3,12 @@ package controle;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mapeamento.Acidente;
 import mapeamento.Condicao;
 import mapeamento.Data;
@@ -48,8 +50,7 @@ public class InserirAcidente extends HttpServlet {
     private String tracadoVia;
     private String usoSolo;
 
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         // pega parâmetros do request
@@ -126,20 +127,19 @@ public class InserirAcidente extends HttpServlet {
         condicao.setTracadoVia(tracadoVia);
         condicao.setUsoSolo(usoSolo);
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
         try {
             aDao.salvar(acidente);
             dDao.salvar(data);
             lDao.salvar(local);
             cDao.salvar(condicao);
-            out.println("Acidente " + acidente.getId() + " salvo");
-            out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-2)\">");
+            RequestDispatcher r = request.getRequestDispatcher("/index.jsp");
+            r.forward(request, response);
         } catch (Exception ex) {
-            out.println("Error: " + ex.getMessage());
-            out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-1)\">");
+            session.setAttribute("erro", ex);
+            RequestDispatcher r = request.getRequestDispatcher("/erro.jsp");
+            r.forward(request, response);
         }
-        out.close();
     }
 
 }

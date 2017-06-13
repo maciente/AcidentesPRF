@@ -12,17 +12,17 @@ import javax.servlet.http.HttpSession;
 import mapeamento.Usuario;
 
 public class BuscarUsuario extends HttpServlet {
+
     private String fonte;
     private String cpf;
     private String nome;
     private List<Usuario> usuarios;
     private UsuarioDAO dao;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
         HttpSession session = request.getSession();
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-                
         try {
             fonte = request.getParameter("fonte");
             if (fonte.equals("CPF")) {
@@ -48,10 +48,10 @@ public class BuscarUsuario extends HttpServlet {
             }
 
         } catch (Exception ex) {
-            out.println("Error: " + ex.getMessage());
-            out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-1)\">");
+            session.setAttribute("erro", ex);
+            RequestDispatcher r = request.getRequestDispatcher("/erro.jsp");
+            r.forward(request, response);
         }
-        out.println("</div>");
     }
 
 }

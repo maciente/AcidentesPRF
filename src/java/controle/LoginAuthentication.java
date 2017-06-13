@@ -17,11 +17,10 @@ public class LoginAuthentication extends HttpServlet {
     private Usuario usuario;
     private UsuarioDAO dao;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(); //obtem a sessao do usuario, caso exista
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
         dao = new UsuarioDAO();
         usuario = new Usuario();
         cpf = request.getParameter("cpf");
@@ -32,15 +31,16 @@ public class LoginAuthentication extends HttpServlet {
                 session.setAttribute("usuario", usuario);
                 RequestDispatcher r = request.getRequestDispatcher("/index.jsp");
                 r.forward(request, response);
-                
+
             } else {
                 session.invalidate();
-                out.println("Não existe usuário com o cpf <b>" + cpf + "</b> ou a senha está incorreta ");
-                out.println("<a href='login.jsp'><br>Tente Novamente</a>");
+                RequestDispatcher r = request.getRequestDispatcher("/login.jsp");
+                r.forward(request, response);
             }
         } catch (Exception ex) {
-            out.println("Usuário e/ou senha inválidos" + ex);
-            out.println("<input type=\"button\" value=\"Voltar\" onClick=\"history.go(-1)\">");
+            session.setAttribute("erro", ex);
+            RequestDispatcher r = request.getRequestDispatcher("/erro.jsp");
+            r.forward(request, response);
         }
     }
 }
