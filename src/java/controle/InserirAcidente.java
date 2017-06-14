@@ -1,7 +1,6 @@
 package controle;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,6 +32,8 @@ public class InserirAcidente extends HttpServlet {
     private int dia;
     private int mes;
     private int ano;
+    private String dataAcid;
+    private String[] aux;
     private Date dataAcidente;
     private String diaSemana;
     private int horario;
@@ -60,9 +61,11 @@ public class InserirAcidente extends HttpServlet {
         ilesos = Integer.parseInt(request.getParameter("ilesos"));
         ignorados = Integer.parseInt(request.getParameter("ignorados"));
         veiculos = Integer.parseInt(request.getParameter("veiculos"));
-        dia = Integer.parseInt(request.getParameter("dia"));
-        mes = Integer.parseInt(request.getParameter("mes"));
-        ano = Integer.parseInt(request.getParameter("ano"));
+        dataAcid = request.getParameter("data");
+        aux = dataAcid.split("/");
+        dia = Integer.parseInt(aux[0]);
+        mes = Integer.parseInt(aux[1]) - 1;
+        ano = Integer.parseInt(aux[2]);
         dataAcidente = new Date(ano, mes, dia);
         diaSemana = request.getParameter("semana");
         horario = Integer.parseInt(request.getParameter("horario"));
