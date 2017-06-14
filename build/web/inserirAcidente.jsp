@@ -17,7 +17,8 @@
                 <input type="text" name="mes" size="2">/
                 <input type="text" name="ano" size="4">
             </p>
-            <p>Dia da semana:<select name="semana">
+            <p>Dia da semana:
+                <select name="semana">
                     <option value="Domingo">Domingo</option>
                     <option value="Segunda">Segunda</option>
                     <option value="Terça">Terça</option>
@@ -27,7 +28,8 @@
                     <option value="Sábado">Sábado</option>
                 </select>
             </p>
-            <p>Horário do acidente:<select name="horario">
+            <p>Horário do acidente:
+                <select name="horario">
                     <option value="0">Entre 00:00 e 00:59</option>
                     <option value="1">Entre 01:00 e 01:59</option>
                     <option value="2">Entre 02:00 e 02:59</option>
@@ -57,7 +59,37 @@
         </div>
         <div align="center">
             <h3>Local do Acidente</h3>
-            <p>Estado: <input type="text" name="estado" size="2"></p>
+            <p>Estado: 
+                <select name="estado">
+                    <option value="AC">Acre</option> 
+                    <option value="AL">Alagoas</option> 
+                    <option value="AM">Amazonas</option> 
+                    <option value="AP">Amapá</option> 
+                    <option value="BA">Bahia</option> 
+                    <option value="CE">Ceará</option> 
+                    <option value="DF">Distrito Federal</option> 
+                    <option value="ES">Espírito Santo</option> 
+                    <option value="GO">Goiás</option> 
+                    <option value="MA">Maranhão</option> 
+                    <option value="MT">Mato Grosso</option> 
+                    <option value="MS">Mato Grosso do Sul</option> 
+                    <option value="MG">Minas Gerais</option> 
+                    <option value="PA">Pará</option> 
+                    <option value="PB">Paraíba</option> 
+                    <option value="PR">Paraná</option> 
+                    <option value="PE">Pernambuco</option> 
+                    <option value="PI">Piauí</option> 
+                    <option value="RJ">Rio de Janeiro</option> 
+                    <option value="RN">Rio Grande do Norte</option> 
+                    <option value="RO">Rondônia</option> 
+                    <option value="RS">Rio Grande do Sul</option> 
+                    <option value="RR">Roraima</option> 
+                    <option value="SC">Santa Catarina</option> 
+                    <option value="SE">Sergipe</option> 
+                    <option value="SP">São Paulo</option> 
+                    <option value="TO">Tocantins</option>
+                </select>
+            </p>
             <p>Município: <input type="text" name="municipio" size="40"></p>
             <p>Rodovia: BR <input type="text" name="br" size="3"></p>
             <p>Km: <input type="text" name="km" size="5"></p>

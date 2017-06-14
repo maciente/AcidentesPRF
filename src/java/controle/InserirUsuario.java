@@ -37,9 +37,16 @@ public class InserirUsuario extends HttpServlet {
 
         HttpSession session = request.getSession();
         try {
-            dao.salvar(usuario);
-            RequestDispatcher r = request.getRequestDispatcher("/index.jsp");
-            r.forward(request, response);
+            if(dao.buscarPorCpf(cpf).isEmpty()){
+                dao.salvar(usuario);
+                session.setAttribute("flag", true);
+                RequestDispatcher r = request.getRequestDispatcher("/inserirUsuario.jsp");
+                r.forward(request, response);
+            } else {
+                session.setAttribute("flag", false);
+                RequestDispatcher r = request.getRequestDispatcher("/inserirUsuario.jsp");
+                r.forward(request, response);
+            }
         } catch (Exception ex) {
             session.setAttribute("erro", ex);
             RequestDispatcher r = request.getRequestDispatcher("/erro.jsp");

@@ -26,14 +26,14 @@ public class BuscarUsuario extends HttpServlet {
         try {
             fonte = request.getParameter("fonte");
             if (fonte.equals("CPF")) {
-                cpf = request.getParameter("cpf");
+                cpf = request.getParameter("valor");
                 dao = new UsuarioDAO();
                 usuarios = dao.buscarPorCpf(cpf);
                 session.setAttribute("lista", usuarios);
                 RequestDispatcher r = request.getRequestDispatcher("/tabelaUsuario.jsp");
                 r.forward(request, response);
             } else if (fonte.equals("Nome")) {
-                nome = request.getParameter("nome");
+                nome = request.getParameter("valor");
                 dao = new UsuarioDAO();
                 usuarios = dao.buscarPorNome(nome);
                 session.setAttribute("lista", usuarios);
