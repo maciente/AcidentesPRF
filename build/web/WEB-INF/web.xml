@@ -16,6 +16,18 @@
         <servlet-name>BuscarUsuario</servlet-name>
         <servlet-class>controle.BuscarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarUsuario</servlet-name>
+        <servlet-class>controle.AlterarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarUsuario</servlet-name>
+        <servlet-class>controle.EditarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirUsuario</servlet-name>
+        <servlet-class>controle.ExcluirUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InserirAcidente</servlet-name>
         <url-pattern>/InserirAcidente</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>BuscarUsuario</servlet-name>
         <url-pattern>/BuscarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarUsuario</servlet-name>
+        <url-pattern>/AlterarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarUsuario</servlet-name>
+        <url-pattern>/EditarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirUsuario</servlet-name>
+        <url-pattern>/ExcluirUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

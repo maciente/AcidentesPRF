@@ -21,36 +21,36 @@
         <div class="panel-body">
             <form class="form-horizontal" method="POST" action="/AcidentesPRF/InserirUsuario">
                 <div class="form-group">
-                    <label class="col-md-2 control-label">*Nome</label>
+                    <label class="col-md-2 control-label">Nome</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="nome">
+                        <input type="text" class="form-control" name="nome" required="required">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label">*CPF</label>
+                    <label class="col-md-2 control-label">CPF</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="cpf">
+                        <input type="text" class="form-control" name="cpf" required="required">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label">*Função</label>
+                    <label class="col-md-2 control-label">Função</label>
                     <div class="col-md-9">
                         <select class="form-control" name="funcao"> 
-                            <option value="administrador" >Administrador</option> 
+                            <option value="administrador">Administrador</option> 
                             <option value="operador">Operador</option> 
                             <option value="usuario">Usuário Comum</option> 
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-2 control-label">*Senha</label>
+                    <label class="col-md-2 control-label">Senha</label>
                     <div class="col-md-9">
-                        <input type="password" class="form-control" name="senha">
+                        <input type="password" class="form-control" name="senha" required="required">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-3">
-                        <p class="text-danger">(*) campos de preenchimento obrigatório</p>
+                        <p class="text-danger">Todos os campos são de preenchimento obrigatório</p>
                     </div>
                 </div>
                 <div class="form-group">

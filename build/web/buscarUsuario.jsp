@@ -1,4 +1,12 @@
 <%@include file="/header.jsp" %>
+<div class="mensagme text-center col-md-15">
+    <c:if test="${flag eq false}">
+        <p class="bg-danger" style="color:red">A consulta não obteve resultados</p>
+        <%
+            session.setAttribute("flag", null);
+        %>
+    </c:if>
+</div>
 <div class="row">
     <div class="col-md-15 col-md-offset-0">    	
         <div class="panel panel-primary">
@@ -38,6 +46,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 <%@include file="/footer.jsp" %>

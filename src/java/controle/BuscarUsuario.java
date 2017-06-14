@@ -1,7 +1,6 @@
 package controle;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +20,7 @@ public class BuscarUsuario extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
         try {
             fonte = request.getParameter("fonte");
@@ -29,22 +28,43 @@ public class BuscarUsuario extends HttpServlet {
                 cpf = request.getParameter("valor");
                 dao = new UsuarioDAO();
                 usuarios = dao.buscarPorCpf(cpf);
-                session.setAttribute("lista", usuarios);
-                RequestDispatcher r = request.getRequestDispatcher("/tabelaUsuario.jsp");
-                r.forward(request, response);
+                if (!usuarios.isEmpty()) {
+                    session.setAttribute("lista", usuarios);
+                    session.setAttribute("flag", true);
+                    RequestDispatcher r = request.getRequestDispatcher("/tabelaUsuario.jsp");
+                    r.forward(request, response);
+                } else {
+                    session.setAttribute("flag", false);
+                    RequestDispatcher r = request.getRequestDispatcher("/buscarUsuario.jsp");
+                    r.forward(request, response);
+                }
             } else if (fonte.equals("Nome")) {
                 nome = request.getParameter("valor");
                 dao = new UsuarioDAO();
                 usuarios = dao.buscarPorNome(nome);
-                session.setAttribute("lista", usuarios);
-                RequestDispatcher r = request.getRequestDispatcher("/tabelaUsuario.jsp");
-                r.forward(request, response);
+                if (!usuarios.isEmpty()) {
+                    session.setAttribute("lista", usuarios);
+                    session.setAttribute("flag", true);
+                    RequestDispatcher r = request.getRequestDispatcher("/tabelaUsuario.jsp");
+                    r.forward(request, response);
+                } else {
+                    session.setAttribute("flag", false);
+                    RequestDispatcher r = request.getRequestDispatcher("/buscarUsuario.jsp");
+                    r.forward(request, response);
+                }
             } else if (fonte.equals("Todos")) {
                 dao = new UsuarioDAO();
                 usuarios = dao.listarTodos();
-                session.setAttribute("lista", usuarios);
-                RequestDispatcher r = request.getRequestDispatcher("/tabelaUsuario.jsp");
-                r.forward(request, response);
+                if (!usuarios.isEmpty()) {
+                    session.setAttribute("lista", usuarios);
+                    session.setAttribute("flag", true);
+                    RequestDispatcher r = request.getRequestDispatcher("/tabelaUsuario.jsp");
+                    r.forward(request, response);
+                } else {
+                    session.setAttribute("flag", false);
+                    RequestDispatcher r = request.getRequestDispatcher("/buscarUsuario.jsp");
+                    r.forward(request, response);
+                }
             }
 
         } catch (Exception ex) {

@@ -44,17 +44,7 @@ public class UsuarioDAO {
 
     public void alterar(Usuario usuario) {
         Transaction tr = sessao.beginTransaction();
-        Usuario old = (Usuario) sessao.load(Usuario.class, usuario.getCpf());
-        if (!usuario.getNome().equals(old.getNome()) && usuario.getNome() != null) {
-            old.setNome(usuario.getNome());
-        }
-        if (!usuario.getSenha().equals(old.getSenha()) && usuario.getSenha() != null) {
-            old.setSenha(usuario.getSenha());
-        }
-        if (!usuario.getFuncao().equals(old.getFuncao()) && usuario.getFuncao() != null) {
-            old.setFuncao(usuario.getFuncao());
-        }
-        sessao.update(old);
+        sessao.update(usuario);
         tr.commit();
     }
 
@@ -63,12 +53,12 @@ public class UsuarioDAO {
     }
 
     public ArrayList<Usuario> buscarPorCpf(String cpf) {
-        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where cpf = '" + cpf + "'").list();
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where cpf like '%" + cpf + "%'").list();
         return usuarios;
     }
     
     public ArrayList<Usuario> buscarPorNome(String nome) {
-        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where nome like '" + nome + "'").list();
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where nome like '%" + nome + "%'").list();
         return usuarios;
     }
 
