@@ -62,10 +62,10 @@ public class InserirAcidente extends HttpServlet {
         ignorados = Integer.parseInt(request.getParameter("ignorados"));
         veiculos = Integer.parseInt(request.getParameter("veiculos"));
         dataAcid = request.getParameter("data");
-        aux = dataAcid.split("/");
-        dia = Integer.parseInt(aux[0]);
+        aux = dataAcid.split("-");
+        dia = Integer.parseInt(aux[2]);
         mes = Integer.parseInt(aux[1]) - 1;
-        ano = Integer.parseInt(aux[2]);
+        ano = Integer.parseInt(aux[0]) - 1900;
         dataAcidente = new Date(ano, mes, dia);
         diaSemana = request.getParameter("semana");
         horario = Integer.parseInt(request.getParameter("horario"));

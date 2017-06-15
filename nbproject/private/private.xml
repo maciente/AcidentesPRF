@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/joao/NetBeansProjects/AcidentesPRF/web/inserirUsuario.jsp</file>
-            <file>file:/home/joao/NetBeansProjects/AcidentesPRF/web/login.jsp</file>
-            <file>file:/home/joao/NetBeansProjects/AcidentesPRF/src/java/controle/LoginAuthentication.java</file>
-            <file>file:/home/joao/NetBeansProjects/AcidentesPRF/web/index.jsp</file>
+            <file>file:/home/joao/NetBeansProjects/AcidentesPRF/src/java/controle/BuscarAcidente.java</file>
+            <file>file:/home/joao/NetBeansProjects/AcidentesPRF/src/java/controle/LocalDAO.java</file>
+            <file>file:/home/joao/NetBeansProjects/AcidentesPRF/web/buscarAcidente.jsp</file>
         </group>
     </open-files>
 </project-private>

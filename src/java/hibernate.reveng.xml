@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="acidentes" match-schema="public"/>
-  <table-filter match-name="acidente"/>
-  <table-filter match-name="condicao"/>
-  <table-filter match-name="usuario"/>
   <table-filter match-name="local"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="acidente"/>
   <table-filter match-name="data"/>
+  <table-filter match-name="condicao"/>
 </hibernate-reverse-engineering>

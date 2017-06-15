@@ -41,32 +41,7 @@ public class AcidenteDAO {
 
     public void alterar(Acidente acidente) {
         Transaction tr = sessao.beginTransaction();
-        Acidente old = (Acidente) sessao.load(Acidente.class, acidente.getId());
-        if (!acidente.getPessoas().equals(old.getPessoas()) && acidente.getPessoas() != null) {
-            old.setPessoas(acidente.getPessoas());
-        }
-        if (!acidente.getMortos().equals(old.getMortos()) && acidente.getMortos() != null) {
-            old.setMortos(acidente.getMortos());
-        }
-        if (!acidente.getFeridosLeves().equals(old.getFeridosLeves()) && acidente.getFeridosLeves() != null) {
-            old.setFeridosLeves(acidente.getFeridosLeves());
-        }
-        if (!acidente.getFeridosGraves().equals(old.getFeridosGraves()) && acidente.getFeridosGraves() != null) {
-            old.setFeridosGraves(acidente.getFeridosGraves());
-        }
-        if (!acidente.getIlesos().equals(old.getIlesos()) && acidente.getIlesos() != null) {
-            old.setIlesos(acidente.getIlesos());
-        }
-        if (!acidente.getIgnorados().equals(old.getIgnorados()) && acidente.getIgnorados() != null) {
-            old.setIgnorados(acidente.getIgnorados());
-        }
-        if (!acidente.getFeridos().equals(old.getFeridos()) && acidente.getFeridos() != null) {
-            old.setFeridos(acidente.getFeridos());
-        }
-        if (!acidente.getVeiculos().equals(old.getVeiculos()) && acidente.getVeiculos() != null) {
-            old.setVeiculos(acidente.getVeiculos());
-        }
-        sessao.update(old);
+        sessao.update(acidente);
         tr.commit();
     }
 
@@ -74,13 +49,9 @@ public class AcidenteDAO {
         return (ArrayList<Acidente>) sessao.createQuery("from Acidente").list();
     }
 
-    public Acidente buscar(int id) {
+    public ArrayList<Acidente> buscarPorId(int id) {
         ArrayList<Acidente> acidentes = (ArrayList<Acidente>) sessao.createQuery("from Acidente where id = " + id).list();
-        Acidente acidente = new Acidente();
-        for(Acidente a : acidentes){
-            acidente = a;
-        }
-        return acidente;
+        return acidentes;
     }
 
     public void excluir(int id) {

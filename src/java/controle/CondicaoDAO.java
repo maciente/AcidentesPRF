@@ -34,35 +34,7 @@ public class CondicaoDAO {
     
     public void alterar(Condicao condicao) {
         Transaction tr = sessao.beginTransaction();
-        Condicao old = (Condicao) sessao.load(Condicao.class, condicao.getId());
-        if (!condicao.getCausaAcidente().equals(old.getCausaAcidente()) && condicao.getCausaAcidente()!= null) {
-            old.setCausaAcidente(condicao.getCausaAcidente());
-        }
-        if (!condicao.getTipoAcidente().equals(old.getTipoAcidente()) && condicao.getTipoAcidente() != null) {
-            old.setTipoAcidente(condicao.getTipoAcidente());
-        }
-        if (!condicao.getClassificacaoAcidente().equals(old.getClassificacaoAcidente()) && condicao.getClassificacaoAcidente() != null) {
-            old.setClassificacaoAcidente(condicao.getClassificacaoAcidente());
-        }
-        if (!condicao.getFaseDia().equals(old.getFaseDia()) && condicao.getFaseDia() != null) {
-            old.setFaseDia(condicao.getFaseDia());
-        }
-        if (!condicao.getSentidoVia().equals(old.getSentidoVia()) && condicao.getSentidoVia() != null) {
-            old.setSentidoVia(condicao.getSentidoVia());
-        }
-        if (!condicao.getCondMetereologica().equals(old.getCondMetereologica()) && condicao.getCondMetereologica() != null) {
-            old.setCondMetereologica(condicao.getCondMetereologica());
-        }
-        if (!condicao.getTipoPista().equals(old.getTipoPista()) && condicao.getTipoPista() != null) {
-            old.setTipoPista(condicao.getTipoPista());
-        }
-        if (!condicao.getTracadoVia().equals(old.getTracadoVia()) && condicao.getTracadoVia() != null) {
-            old.setTracadoVia(condicao.getTracadoVia());
-        }
-        if (!condicao.getUsoSolo().equals(old.getUsoSolo()) && condicao.getUsoSolo() != null) {
-            old.setUsoSolo(condicao.getUsoSolo());
-        }
-        sessao.update(old);
+        sessao.update(condicao);
         tr.commit();
     }
 
@@ -70,7 +42,7 @@ public class CondicaoDAO {
         return (ArrayList<Condicao>) sessao.createQuery("from Condicao").list();
     }
 
-    public Condicao buscar(int id) {
+    public Condicao buscarPorId(int id) {
         ArrayList<Condicao> condicoes = (ArrayList<Condicao>) sessao.createQuery("from Condicao where id = " + id).list();
         Condicao condicao = new Condicao();
         for(Condicao c : condicoes){

@@ -1,6 +1,7 @@
 package controle;
 
 import java.util.ArrayList;
+import java.util.Date;
 import mapeamento.Data;
 import mapeamento.HibernateUtil;
 import org.hibernate.Session;
@@ -34,17 +35,7 @@ public class DataDAO {
 
     public void alterar(Data data) {
         Transaction tr = sessao.beginTransaction();
-        Data old = (Data) sessao.load(Data.class, data.getId());
-        if (!data.getDiaSemana().equals(old.getDiaSemana()) && data.getDiaSemana() != null) {
-            old.setDiaSemana(data.getDiaSemana());
-        }
-        if (!data.getDataAcidente().equals(old.getDataAcidente()) && data.getDataAcidente() != null) {
-            old.setDataAcidente(data.getDataAcidente());
-        }
-        if (!data.getHorario().equals(old.getHorario()) && data.getHorario() != null) {
-            old.setHorario(data.getHorario());
-        }
-        sessao.update(old);
+        sessao.update(data);
         tr.commit();
     }
 
@@ -52,7 +43,12 @@ public class DataDAO {
         return (ArrayList<Data>) sessao.createQuery("from Data").list();
     }
 
-    public Data buscar(int id) {
+    public ArrayList<Data> buscar(Date dataInicial, Date dataFinal) {
+        return (ArrayList<Data>) sessao.createQuery("from Data where data_acidente >= "
+                + dataInicial + " and data_acidente <= " + dataFinal).list();
+    }
+
+    public Data buscarPorId(int id) {
         ArrayList<Data> datas = (ArrayList<Data>) sessao.createQuery("from Data where id = " + id).list();
         Data data = new Data();
         for(Data d : datas){

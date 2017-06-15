@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Veículos Envolvidos</label>
                         <div class="col-md-8">
-                            <input type="number" class="form-control" name="feridos_leves" required="required">
+                            <input type="number" class="form-control" name="veiculos" required="required">
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Dia da Semana</label>
+                        <label class="col-md-3 control-label">Horário</label>
                         <div class="col-md-8">
                             <select class="form-control" name="horario"> 
                                 <option value="0">Entre 00:00 e 00:59</option>

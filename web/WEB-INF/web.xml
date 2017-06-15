@@ -28,6 +28,10 @@
         <servlet-name>ExcluirUsuario</servlet-name>
         <servlet-class>controle.ExcluirUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscarAcidente</servlet-name>
+        <servlet-class>controle.BuscarAcidente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InserirAcidente</servlet-name>
         <url-pattern>/InserirAcidente</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirUsuario</servlet-name>
         <url-pattern>/ExcluirUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarAcidente</servlet-name>
+        <url-pattern>/BuscarAcidente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,6 +1,7 @@
 package controle;
 
 import java.util.ArrayList;
+import java.util.List;
 import mapeamento.Local;
 import mapeamento.HibernateUtil;
 import org.hibernate.Session;
@@ -34,20 +35,7 @@ public class LocalDAO {
 
     public void alterar(Local local) {
         Transaction tr = sessao.beginTransaction();
-        Local old = (Local) sessao.load(Local.class, local.getId());
-        if (!local.getUf().equals(old.getUf()) && local.getUf() != null) {
-            old.setUf(local.getUf());
-        }
-        if (!local.getBr().equals(old.getBr()) && local.getBr() != null) {
-            old.setBr(local.getBr());
-        }
-        if (!local.getKm().equals(old.getKm()) && local.getKm() != null) {
-            old.setKm(local.getKm());
-        }
-        if (!local.getMunicipio().equals(old.getMunicipio()) && local.getMunicipio()!= null) {
-            old.setMunicipio(local.getMunicipio());
-        }
-        sessao.update(old);
+        sessao.update(local);
         tr.commit();
     }
 
@@ -55,7 +43,17 @@ public class LocalDAO {
         return (ArrayList<Local>) sessao.createQuery("from Local").list();
     }
 
-    public Local buscar(int id) {
+    public ArrayList<Local> buscar(String estado, String municipio, int rodovia, float kmInicial, float kmFinal) {
+        return (ArrayList<Local>) sessao.createQuery("from Local where uf = '" + estado + "' "
+                + "and municipio like '%" + municipio + "%' and br = " + rodovia + " and km >= "
+                + kmInicial + " and km <= " + kmFinal).list();
+    }
+    
+    public List<Local> buscarPorRodovia(int rodovia) {
+        return (ArrayList<Local>) sessao.createQuery("from Local where br = " + rodovia).list();
+    }
+    
+    public Local buscarPorId(int id) {
         ArrayList<Local> locais = (ArrayList<Local>) sessao.createQuery("from Local where id = " + id).list();
         Local local = new Local();
         for(Local l : locais){
