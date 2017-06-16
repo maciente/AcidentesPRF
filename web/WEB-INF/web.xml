@@ -32,6 +32,18 @@
         <servlet-name>BuscarAcidente</servlet-name>
         <servlet-class>controle.BuscarAcidente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarAcidente</servlet-name>
+        <servlet-class>controle.AlterarAcidente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarAcidente</servlet-name>
+        <servlet-class>controle.EditarAcidente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirAcidente</servlet-name>
+        <servlet-class>controle.ExcluirAcidente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InserirAcidente</servlet-name>
         <url-pattern>/InserirAcidente</url-pattern>
@@ -63,6 +75,18 @@
     <servlet-mapping>
         <servlet-name>BuscarAcidente</servlet-name>
         <url-pattern>/BuscarAcidente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarAcidente</servlet-name>
+        <url-pattern>/AlterarAcidente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarAcidente</servlet-name>
+        <url-pattern>/EditarAcidente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirAcidente</servlet-name>
+        <url-pattern>/ExcluirAcidente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

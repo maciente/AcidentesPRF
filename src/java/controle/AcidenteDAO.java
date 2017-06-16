@@ -46,12 +46,16 @@ public class AcidenteDAO {
     }
 
     public ArrayList<Acidente> listarTodos() {
-        return (ArrayList<Acidente>) sessao.createQuery("from Acidente").list();
+        return (ArrayList<Acidente>) sessao.createQuery("from Acidente where id < 20").list();
     }
 
-    public ArrayList<Acidente> buscarPorId(int id) {
+    public Acidente buscarPorId(int id) {
         ArrayList<Acidente> acidentes = (ArrayList<Acidente>) sessao.createQuery("from Acidente where id = " + id).list();
-        return acidentes;
+        Acidente acidente = new Acidente();
+        for(Acidente a : acidentes){
+            acidente = a;
+        }
+        return acidente;
     }
 
     public void excluir(int id) {

@@ -8,25 +8,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class ExcluirUsuario extends HttpServlet {
+public class ExcluirAcidente extends HttpServlet {
 
-    private UsuarioDAO dao;
-    private String cpf;
+    private AcidenteDAO aDao;
+    private LocalDAO lDao;
+    private CondicaoDAO cDao;
+    private DataDAO dDao;
+    private int id;
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
         try {
-            cpf = request.getParameter("cpf");
-            dao = new UsuarioDAO();
-            dao.excluir(cpf);
+            id = Integer.parseInt(request.getParameter("id"));
+            lDao = new LocalDAO();
+            lDao.excluir(id);
+            cDao = new CondicaoDAO();
+            cDao.excluir(id);
+            dDao = new DataDAO();
+            dDao.excluir(id);
+            aDao = new AcidenteDAO();
+            aDao.excluir(id);
             session.setAttribute("flag", true);
-            RequestDispatcher r = request.getRequestDispatcher("/excluirUsuario.jsp");
+            RequestDispatcher r = request.getRequestDispatcher("/excluirAcidente.jsp");
             r.forward(request, response);
         } catch (Exception ex) {
             session.setAttribute("flag", false);
-            RequestDispatcher r = request.getRequestDispatcher("/excluirUsuario.jsp");
+            RequestDispatcher r = request.getRequestDispatcher("/excluirAcidente.jsp");
             r.forward(request, response);
         }
     }
