@@ -3,5 +3,5 @@
                 <script src="resources/js/jquery.min.js" type="text/javascript"></script>
             </div>
         </div>
-    </body>
+    <body>
 </html>

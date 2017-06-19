@@ -40,17 +40,17 @@ public class DataDAO {
         tr.commit();
     }
 
-    public List<Data> listarTodos() {
-        List<Data> datas = (List<Data>) sessao.createQuery("from Data").list();
+    public ArrayList<Data> listarTodos() {
+        ArrayList<Data> datas = (ArrayList<Data>) sessao.createQuery("from Data").list();
         return datas;
     }
 
-    public ArrayList<Data> buscar(Date dataInicial, Date dataFinal) {
-        return (ArrayList<Data>) sessao.createQuery("from Data d where d.dataAcidente between "
-                + dataInicial + " and " + dataFinal).list();
+    public ArrayList<Data> buscar(String dataInicial, String dataFinal) {
+        return (ArrayList<Data>) sessao.createQuery("from Data where dataAcidente between '"
+                + dataInicial + "' and '" + dataFinal + "' order by id").list();
     }
-    
-    public ArrayList<Data> buscarPorData(Date data) {
+
+    public ArrayList<Data> buscarPorData(String data) {
         return (ArrayList<Data>) sessao.createQuery("from Data where dataAcidente = '"
                 + data + "' order by id").list();
     }

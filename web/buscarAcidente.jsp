@@ -20,20 +20,20 @@
                         <div class="input-group col-md-8">
                             <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></span>
                             <select class="form-control" name="busca" aria-describedby="basic-addon1">
-                                <!--<option value="data">Data</option>--> 
+                                <option value="data">Data</option> 
                                 <option value="local">Local</option> 
                                 <option value="rodovia">Rodovia</option>
                             </select>
                         </div>
                     </div>
-                    <!--<div class="form-group">
+                    <div class="form-group">
                         <label class="col-md-3 control-label">Data</label>
                         <div class="input-group col-md-8">
                             <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-                            <input type="date" class="form-control" name="data_inicial" aria-describedby="basic-addon1">
-                            <input type="date" class="form-control" name="data_final" aria-describedby="basic-addon1">
+                            <input type="date" class="form-control" name="dataInicial" aria-describedby="basic-addon1">
+                            <input type="date" class="form-control" name="dataFinal" aria-describedby="basic-addon1">
                         </div>
-                    </div>-->
+                    </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Local</label>
                         <div class="input-group col-md-8">

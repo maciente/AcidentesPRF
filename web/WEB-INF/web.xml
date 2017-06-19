@@ -44,6 +44,10 @@
         <servlet-name>ExcluirAcidente</servlet-name>
         <servlet-class>controle.ExcluirAcidente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GerarRelatorio</servlet-name>
+        <servlet-class>controle.GerarRelatorio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InserirAcidente</servlet-name>
         <url-pattern>/InserirAcidente</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirAcidente</servlet-name>
         <url-pattern>/ExcluirAcidente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GerarRelatorio</servlet-name>
+        <url-pattern>/GerarRelatorio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

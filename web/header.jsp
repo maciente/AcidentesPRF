@@ -10,8 +10,8 @@
         <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-    </head>
-    <body style="background-color:white">
+    <head>
+    <h:body style="background-color:white">
         <c:choose>
             <c:when test="${ usuario eq null }">
                 <jsp:forward page="login.jsp" />
@@ -32,16 +32,16 @@
                                         <li><a href="/AcidentesPRF/buscarAcidente.jsp">Buscar Acidente</a></li>
                                         <li><a href="/AcidentesPRF/inserirUsuario.jsp">Inserir Usuário</a></li>
                                         <li><a href="/AcidentesPRF/buscarUsuario.jsp">Buscar Usuário</a></li>
-                                        <li><a href="/AcidentesPRF/gerarRelatorio.jsp">Gerar Relatórios</a></li>
+                                        <li><a href="/AcidentesPRF/setarRelatorio.jsp">Gerar Relatórios</a></li>
                                         </c:when>
                                         <c:when test="${ usuario.funcao eq 'operador' }">
                                         <li><a href="/AcidentesPRF/inserirAcidente.jsp">Inserir Acidente</a></li>
                                         <li><a href="/AcidentesPRF/buscarAcidente.jsp">Buscar Acidente</a></li>
-                                        <li><a href="/AcidentesPRF/gerarRelatorio.jsp">Gerar Relatórios</a></li>
+                                        <li><a href="/AcidentesPRF/setarRelatorio.jsp">Gerar Relatórios</a></li>
                                         </c:when>
                                         <c:otherwise>
                                         <li><a href="/AcidentesPRF/buscarAcidente.jsp">Buscar Acidente</a></li>
-                                        <li><a href="/AcidentesPRF/gerarRelatorio.jsp">Gerar Relatórios</a></li>
+                                        <li><a href="/AcidentesPRF/setarRelatorio.jsp">Gerar Relatórios</a></li>
                                         </c:otherwise>
                                     </c:choose>
                             </ul>
