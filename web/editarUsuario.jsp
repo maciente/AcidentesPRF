@@ -36,6 +36,7 @@
                     <label class="col-md-2 control-label">Função</label>
                     <div class="col-md-9">
                         <select class="form-control" name="funcao"> 
+                            <option value="${user.funcao}">${user.funcao}</option>
                             <option value="administrador">Administrador</option> 
                             <option value="operador">Operador</option> 
                             <option value="usuario">Usuário Comum</option> 

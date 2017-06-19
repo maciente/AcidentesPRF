@@ -22,6 +22,7 @@ public class AlterarUsuario extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
         try {
             opcao = request.getParameter("opcao");
             cpf = request.getParameter("cpf");

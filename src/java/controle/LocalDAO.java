@@ -40,17 +40,17 @@ public class LocalDAO {
     }
 
     public ArrayList<Local> listarTodos() {
-        return (ArrayList<Local>) sessao.createQuery("from Local").list();
+        return (ArrayList<Local>) sessao.createQuery("from Local order by id").list();
     }
 
-    public ArrayList<Local> buscar(String estado, String municipio, int rodovia, float kmInicial, float kmFinal) {
+    public ArrayList<Local> buscarPorLocal(String estado, String municipio) {
         return (ArrayList<Local>) sessao.createQuery("from Local where uf = '" + estado + "' "
-                + "and municipio like '%" + municipio + "%' and br = " + rodovia + " and km >= "
-                + kmInicial + " and km <= " + kmFinal).list();
+                + "and municipio like '%" + municipio + "%' order by id").list();
     }
     
-    public List<Local> buscarPorRodovia(int rodovia) {
-        return (ArrayList<Local>) sessao.createQuery("from Local where br = " + rodovia).list();
+    public ArrayList<Local> buscarPorRodovia(int rodovia, float kmInicial, float kmFinal) {
+        return (ArrayList<Local>) sessao.createQuery("from Local where br = " + rodovia + " and km >= "
+                + kmInicial + " and km <= " + kmFinal + " order by id").list();
     }
     
     public Local buscarPorId(int id) {

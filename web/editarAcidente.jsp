@@ -74,7 +74,8 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Dia da Semana</label>
                         <div class="col-md-8">
-                            <select class="form-control" name="semana"> 
+                            <select class="form-control" name="semana">
+                                <option value="${acidente.data.diaSemana}">${acidente.data.diaSemana}</option> 
                                 <option value="Domingo">Domingo</option>
                                 <option value="Segunda">Segunda</option>
                                 <option value="Terça">Terça</option>
@@ -89,6 +90,7 @@
                         <label class="col-md-3 control-label">Horário</label>
                         <div class="col-md-8">
                             <select class="form-control" name="horario"> 
+                                <option value="${acidente.data.horario}">Entre ${acidente.data.horario}:00 e ${acidente.data.horario}:59</option>
                                 <option value="0">Entre 00:00 e 00:59</option>
                                 <option value="1">Entre 01:00 e 01:59</option>
                                 <option value="2">Entre 02:00 e 02:59</option>
@@ -127,6 +129,7 @@
                         <label class="col-md-3 control-label">Estado</label>
                         <div class="col-md-8">
                             <select class="form-control" name="estado"> 
+                                <option value="${acidente.local.uf}">${acidente.local.uf}</option> 
                                 <option value="AC">Acre</option> 
                                 <option value="AL">Alagoas</option> 
                                 <option value="AM">Amazonas</option> 
@@ -186,6 +189,7 @@
                         <label class="col-md-3 control-label">Causa</label>
                         <div class="col-md-8">
                             <select class="form-control" name="causa">
+                                <option value="${acidente.condicao.causaAcidente}">${acidente.condicao.causaAcidente}</option>
                                 <option value="Animais na Pista">Animais na Pista</option>
                                 <option value="Defeito mecânico em veículo">Defeito mecânico em veículo</option>
                                 <option value="Defeito na via">Defeito na via</option>
@@ -204,6 +208,7 @@
                         <label class="col-md-3 control-label">Tipo de Acidente</label>
                         <div class="col-md-8">
                             <select class="form-control" name="tipo_acidente">
+                                <option value="${acidente.condicao.tipoAcidente}">${acidente.condicao.tipoAcidente}</option>
                                 <option value="Atropelamento de animal">Atropelamento de animal</option>
                                 <option value="Atropelamento de pessoa">Atropelamento de pessoa</option>
                                 <option value="Capotamento">Capotamento</option>
@@ -227,6 +232,7 @@
                         <label class="col-md-3 control-label">Calssificação</label>
                         <div class="col-md-8">
                             <select class="form-control" name="classificacao">
+                                <option value="${acidente.condicao.classificacaoAcidente}">${acidente.condicao.classificacaoAcidente}</option>
                                 <option value="Com Vítimas Fatais">Com Vítimas Fatais</option>
                                 <option value="Com Vítimas Feridas">Com Vítimas Feridas</option>
                                 <option value="Ignorado">Ignorado</option>
@@ -238,6 +244,7 @@
                         <label class="col-md-3 control-label">Fase do Dia</label>
                         <div class="col-md-8">
                             <select class="form-control" name="fase">
+                                <option value="${acidente.condicao.faseDia}">${acidente.condicao.faseDia}</option>
                                 <option value="Amanhecer">Amanhecer</option>
                                 <option value="Anoitecer">Anoitecer</option>
                                 <option value="Plena noite">Plena noite</option>
@@ -249,6 +256,7 @@
                         <label class="col-md-3 control-label">Sentido da Via</label>
                         <div class="col-md-8">
                             <select class="form-control" name="sentido">
+                                <option value="${acidente.condicao.sentidoVia}">${acidente.condicao.sentidoVia}</option>
                                 <option value="Crescente">Crescente</option>
                                 <option value="Decrescente">Decrescente</option>
                             </select>
@@ -258,6 +266,7 @@
                         <label class="col-md-3 control-label">Cond. Metereológicas</label>
                         <div class="col-md-8">
                             <select class="form-control" name="cond_metereologica">
+                                <option value="${acidente.condicao.condMetereologica}">${acidente.condicao.condMetereologica}</option>
                                 <option value="Ceu Claro">Ceu Claro</option>
                                 <option value="Chuva">Chuva</option>
                                 <option value="Granizo">Granizo</option>
@@ -274,6 +283,7 @@
                         <label class="col-md-3 control-label">Tipo de Pista</label>
                         <div class="col-md-8">
                             <select class="form-control" name="tipo_pista">
+                                <option value="${acidente.condicao.tipoPista}">${acidente.condicao.tipoPista}</option>
                                 <option value="Dupla">Dupla</option>
                                 <option value="Múltipla">Múltipla</option>
                                 <option value="Simples">Simples</option>
@@ -284,6 +294,7 @@
                         <label class="col-md-3 control-label">Traçado da Via</label>
                         <div class="col-md-8">
                             <select class="form-control" name="tracado">
+                                <option value="${acidente.condicao.tracadoVia}">${acidente.condicao.tracadoVia}</option>
                                 <option value="Cruzamento">Cruzamento</option>
                                 <option value="Curva">Curva</option>
                                 <option value="Reta">Reta</option>
@@ -294,6 +305,7 @@
                         <label class="col-md-3 control-label">Uso do Solo</label>
                         <div class="col-md-8">
                             <select class="form-control" name="uso_solo">
+                                <option value="${acidente.condicao.usoSolo}">${acidente.condicao.usoSolo}</option>
                                 <option value="Rural">Rural</option>
                                 <option value="Urbano">Urbano</option>
                             </select>

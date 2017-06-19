@@ -2,6 +2,7 @@ package controle;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,15 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import mapeamento.Acidente;
 import mapeamento.Data;
 import mapeamento.Local;
 
 public class BuscarAcidente extends HttpServlet {
 
-    private ArrayList<Acidente> acidentes;
-    private AcidenteDAO aDao;
-    private ArrayList<Data> datas;
+    private List<Data> datas;
     private DataDAO dDao;
     private ArrayList<Local> locais;
     private LocalDAO lDao;
@@ -36,6 +34,7 @@ public class BuscarAcidente extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
         try {
             busca = request.getParameter("busca");
             if (busca.equals("data")) {
@@ -57,12 +56,9 @@ public class BuscarAcidente extends HttpServlet {
                 }
             } else if (busca.equals("local")) {
                 estado = request.getParameter("estado");
-                municipio = request.getParameter("municipio");
-                rodovia = Integer.parseInt(request.getParameter("br"));
-                kmInicial = Float.parseFloat(request.getParameter("km_inicial"));
-                kmFinal = Float.parseFloat(request.getParameter("km_final"));
+                municipio = request.getParameter("municipio").toUpperCase();
                 lDao = new LocalDAO();
-                locais = lDao.buscar(estado, municipio, rodovia, kmInicial, kmFinal);
+                locais = lDao.buscarPorLocal(estado, municipio);
                 if (!locais.isEmpty()) {
                     session.setAttribute("locais", locais);
                     session.setAttribute("flag", true);
@@ -73,10 +69,14 @@ public class BuscarAcidente extends HttpServlet {
                     RequestDispatcher r = request.getRequestDispatcher("/buscarAcidente.jsp");
                     r.forward(request, response);
                 }
-            } else {
-                aDao = new AcidenteDAO();
-                acidentes = aDao.listarTodos();
-                if (!acidentes.isEmpty()) {session.setAttribute("acidentes", acidentes);
+            } else if (busca.equals("rodovia")) {
+                rodovia = Integer.parseInt(request.getParameter("br"));
+                kmInicial = Float.parseFloat(request.getParameter("km_inicial"));
+                kmFinal = Float.parseFloat(request.getParameter("km_final"));
+                lDao = new LocalDAO();
+                locais = lDao.buscarPorRodovia(rodovia, kmInicial, kmFinal);
+                if (!locais.isEmpty()) {
+                    session.setAttribute("locais", locais);
                     session.setAttribute("flag", true);
                     RequestDispatcher r = request.getRequestDispatcher("/tabelaAcidente.jsp");
                     r.forward(request, response);

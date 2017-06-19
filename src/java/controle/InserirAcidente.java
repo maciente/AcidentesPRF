@@ -54,6 +54,7 @@ public class InserirAcidente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
         // pega parâmetros do request
         mortos = Integer.parseInt(request.getParameter("mortos"));
         feridosLeves = Integer.parseInt(request.getParameter("feridos_leves"));
@@ -70,7 +71,7 @@ public class InserirAcidente extends HttpServlet {
         diaSemana = request.getParameter("semana");
         horario = Integer.parseInt(request.getParameter("horario"));
         estado = request.getParameter("estado");
-        municipio = request.getParameter("municipio");
+        municipio = request.getParameter("municipio").toUpperCase();
         rodovia = Integer.parseInt(request.getParameter("br"));
         km = Float.parseFloat(request.getParameter("km"));
         causa = request.getParameter("causa");
@@ -136,11 +137,12 @@ public class InserirAcidente extends HttpServlet {
             dDao.salvar(data);
             lDao.salvar(local);
             cDao.salvar(condicao);
-            RequestDispatcher r = request.getRequestDispatcher("/index.jsp");
+            session.setAttribute("flag", true);
+            RequestDispatcher r = request.getRequestDispatcher("/inserirAcidente.jsp");
             r.forward(request, response);
         } catch (Exception ex) {
-            session.setAttribute("erro", ex);
-            RequestDispatcher r = request.getRequestDispatcher("/erro.jsp");
+            session.setAttribute("flag", false);
+            RequestDispatcher r = request.getRequestDispatcher("/inserirAcidente.jsp");
             r.forward(request, response);
         }
     }

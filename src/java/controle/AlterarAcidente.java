@@ -20,6 +20,7 @@ public class AlterarAcidente extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
         try {
             opcao = request.getParameter("opcao");
             id = Integer.parseInt(request.getParameter("id"));

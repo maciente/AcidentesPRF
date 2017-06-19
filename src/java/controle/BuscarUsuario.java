@@ -22,6 +22,7 @@ public class BuscarUsuario extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
         try {
             fonte = request.getParameter("fonte");
             if (fonte.equals("CPF")) {

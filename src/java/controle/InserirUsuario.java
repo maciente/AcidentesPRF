@@ -21,6 +21,7 @@ public class InserirUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
         // pega parâmetros do request
         cpf = request.getParameter("cpf");
         nome = request.getParameter("nome");

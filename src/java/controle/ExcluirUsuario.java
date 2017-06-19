@@ -17,6 +17,7 @@ public class ExcluirUsuario extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
         try {
             cpf = request.getParameter("cpf");
             dao = new UsuarioDAO();

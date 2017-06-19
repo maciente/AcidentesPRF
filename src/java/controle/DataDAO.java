@@ -2,6 +2,7 @@ package controle;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import mapeamento.Data;
 import mapeamento.HibernateUtil;
 import org.hibernate.Session;
@@ -39,13 +40,19 @@ public class DataDAO {
         tr.commit();
     }
 
-    public ArrayList<Data> listarTodos() {
-        return (ArrayList<Data>) sessao.createQuery("from Data").list();
+    public List<Data> listarTodos() {
+        List<Data> datas = (List<Data>) sessao.createQuery("from Data").list();
+        return datas;
     }
 
     public ArrayList<Data> buscar(Date dataInicial, Date dataFinal) {
-        return (ArrayList<Data>) sessao.createQuery("from Data where data_acidente >= '"
-                + dataInicial + "' and data_acidente <= '" + dataFinal + "'").list();
+        return (ArrayList<Data>) sessao.createQuery("from Data d where d.dataAcidente between "
+                + dataInicial + " and " + dataFinal).list();
+    }
+    
+    public ArrayList<Data> buscarPorData(Date data) {
+        return (ArrayList<Data>) sessao.createQuery("from Data where dataAcidente = '"
+                + data + "' order by id").list();
     }
 
     public Data buscarPorId(int id) {

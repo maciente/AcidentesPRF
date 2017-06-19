@@ -55,6 +55,7 @@ public class EditarAcidente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
         // pega parâmetros do request
         id = Integer.parseInt(request.getParameter("id"));
         mortos = Integer.parseInt(request.getParameter("mortos"));
@@ -72,7 +73,7 @@ public class EditarAcidente extends HttpServlet {
         diaSemana = request.getParameter("semana");
         horario = Integer.parseInt(request.getParameter("horario"));
         estado = request.getParameter("estado");
-        municipio = request.getParameter("municipio");
+        municipio = request.getParameter("municipio").toUpperCase();
         rodovia = Integer.parseInt(request.getParameter("br"));
         km = Float.parseFloat(request.getParameter("km"));
         causa = request.getParameter("causa");

@@ -1,7 +1,6 @@
 package controle;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +20,7 @@ public class LoginAuthentication extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
         dao = new UsuarioDAO();
         usuario = new Usuario();
         cpf = request.getParameter("cpf");

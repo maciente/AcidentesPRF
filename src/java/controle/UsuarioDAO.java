@@ -49,16 +49,16 @@ public class UsuarioDAO {
     }
 
     public ArrayList<Usuario> listarTodos() {
-        return (ArrayList<Usuario>) sessao.createQuery("from Usuario").list();
+        return (ArrayList<Usuario>) sessao.createQuery("from Usuario order by nome").list();
     }
 
     public ArrayList<Usuario> buscarPorCpf(String cpf) {
-        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where cpf like '%" + cpf + "%'").list();
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where cpf like '%" + cpf + "%' order by cpf").list();
         return usuarios;
     }
     
     public ArrayList<Usuario> buscarPorNome(String nome) {
-        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where nome like '%" + nome + "%'").list();
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) sessao.createQuery("from Usuario where nome like '%" + nome + "%' order by nome").list();
         return usuarios;
     }
 

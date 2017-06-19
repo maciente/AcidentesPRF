@@ -20,6 +20,7 @@ public class ExcluirAcidente extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("UTF-8");
         try {
             id = Integer.parseInt(request.getParameter("id"));
             lDao = new LocalDAO();
