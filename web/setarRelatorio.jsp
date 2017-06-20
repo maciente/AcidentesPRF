@@ -16,19 +16,27 @@
             <div class="panel-body">
                 <form class="form-horizontal" method = "post" action = "/AcidentesPRF/GerarRelatorio">
                     <div class="form-group">
-                        <label class="control-label col-md-3">Pesquisar por</label>
+                        <label class="control-label col-md-3">Relatório de</label>
                         <div class="input-group col-md-8">
                             <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></span>
                             <select class="form-control" name="busca" aria-describedby="basic-addon1">
-                                <option value="ID">Id</option> 
+                                <option value="causa">Causa do Acidente</option> 
+                                <option value="tipoAcidente">Tipo de Acidente</option> 
+                                <option value="classificacao">Classificação do Acidente</option> 
+                                <option value="fase">Fase do Dia</option> 
+                                <option value="cond">Condições Metereológicas</option> 
+                                <option value="tipoPista">Tipo de Pista</option> 
+                                <option value="tracado">Traçado da Via</option> 
+                                <option value="solo">Uso Solo</option> 
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Id</label>
+                        <label class="col-md-3 control-label">Data</label>
                         <div class="input-group col-md-8">
                             <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-                            <input type="number" class="form-control" name="id" placeholder="Rodovia" aria-describedby="basic-addon1">
+                            <input type="date" class="form-control" name="dataInicial" aria-describedby="basic-addon1">
+                            <input type="date" class="form-control" name="dataFinal" aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class="form-group">

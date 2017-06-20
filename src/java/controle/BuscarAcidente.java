@@ -23,9 +23,8 @@ public class BuscarAcidente extends HttpServlet {
     private int mes;
     private int ano;
     private String[] aux;
-    private String dataI;
+    private String data;
     private Date dataInicial;
-    private String dataF;
     private Date dataFinal;
     private String estado;
     private String municipio;
@@ -42,22 +41,20 @@ public class BuscarAcidente extends HttpServlet {
         try {
             busca = request.getParameter("busca");
             if (busca.equals("data")) {
-                dataI = request.getParameter("dataInicial");
-                aux = dataI.split("-");
+                data = request.getParameter("dataInicial");
+                aux = data.split("-");
                 dia = Integer.parseInt(aux[2]);
                 mes = Integer.parseInt(aux[1]) - 1;
                 ano = Integer.parseInt(aux[0]) - 1900;
                 dataInicial = new Date(ano, mes, dia);
-                System.out.println("data inicial " + dataI + " - " + dataInicial);
-                dataF = request.getParameter("dataFinal");
-                aux = dataI.split("-");
+                data = request.getParameter("dataFinal");
+                aux = data.split("-");
                 dia = Integer.parseInt(aux[2]);
                 mes = Integer.parseInt(aux[1]) - 1;
                 ano = Integer.parseInt(aux[0]) - 1900;
                 dataFinal = new Date(ano, mes, dia);
-                System.out.println("data final " + dataF + " - " + dataFinal);
                 dDao = new DataDAO();
-                datas = dDao.buscar(dataI, dataF);
+                datas = dDao.buscar(dataInicial, dataFinal);
                 if (!datas.isEmpty()) {
                     session.setAttribute("datas", datas);
                     session.setAttribute("flag", true);

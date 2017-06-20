@@ -103,13 +103,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Rodovia BR</label>
+                        <label class="col-md-3 control-label">Rodovia</label>
                         <div class="col-md-8">
                             <input type="number" class="form-control" name="br" value="${acidente.local.br}" readonly="readonly">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Kilômetro</label>
+                        <label class="col-md-3 control-label">Km</label>
                         <div class="col-md-8">
                             <input type="number" class="form-control" name="km" value="${acidente.local.km}" readonly="readonly">
                         </div>
@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Condições Metereologicas</label>
+                        <label class="col-md-3 control-label">Condições Meteorologicas</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_metereologica" value="${acidente.condicao.condMetereologica}" readonly="readonly">
                         </div>

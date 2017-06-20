@@ -41,7 +41,7 @@ public class CondicaoDAO {
     public ArrayList<Condicao> listarTodos() {
         return (ArrayList<Condicao>) sessao.createQuery("from Condicao").list();
     }
-
+     
     public Condicao buscarPorId(int id) {
         ArrayList<Condicao> condicoes = (ArrayList<Condicao>) sessao.createQuery("from Condicao where id = " + id).list();
         Condicao condicao = new Condicao();

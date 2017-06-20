@@ -163,13 +163,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Rodovia BR</label>
+                        <label class="col-md-3 control-label">Rodovia</label>
                         <div class="col-md-8">
                             <input type="number" class="form-control" name="br" required="required">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Kilômetro</label>
+                        <label class="col-md-3 control-label">Km</label>
                         <div class="col-md-8">
                             <input type="number" class="form-control" name="km" required="required">
                         </div>
@@ -223,7 +223,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Calssificação</label>
+                        <label class="col-md-3 control-label">Classificação</label>
                         <div class="col-md-8">
                             <select class="form-control" name="classificacao">
                                 <option value="Com Vítimas Fatais">Com Vítimas Fatais</option>
@@ -254,7 +254,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Cond. Metereológicas</label>
+                        <label class="col-md-3 control-label">Cond. Meteorológicas</label>
                         <div class="col-md-8">
                             <select class="form-control" name="cond_metereologica">
                                 <option value="Ceu Claro">Ceu Claro</option>
@@ -293,8 +293,8 @@
                         <label class="col-md-3 control-label">Uso do Solo</label>
                         <div class="col-md-8">
                             <select class="form-control" name="uso_solo">
-                                <option value="Rural">Rural</option>
-                                <option value="Urbano">Urbano</option>
+                                <option value="Rural">Perímetro Rural</option>
+                                <option value="Urbano">Perímetro Urbano</option>
                             </select>
                         </div>
                     </div>

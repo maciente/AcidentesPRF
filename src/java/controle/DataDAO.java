@@ -45,14 +45,14 @@ public class DataDAO {
         return datas;
     }
 
-    public ArrayList<Data> buscar(String dataInicial, String dataFinal) {
+    public ArrayList<Data> buscar(Date dataInicial, Date dataFinal) {
         return (ArrayList<Data>) sessao.createQuery("from Data where dataAcidente between '"
-                + dataInicial + "' and '" + dataFinal + "' order by id").list();
+                + dataInicial + "' and '" + dataFinal + "' order by dataAcidente").list();
     }
 
-    public ArrayList<Data> buscarPorData(String data) {
+    public ArrayList<Data> buscarPorData(Date data) {
         return (ArrayList<Data>) sessao.createQuery("from Data where dataAcidente = '"
-                + data + "' order by id").list();
+                + data + "' order by dataAcidente").list();
     }
 
     public Data buscarPorId(int id) {
