@@ -10,8 +10,8 @@
         <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
         <link href="resources/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-    <head>
-    <h:body style="background-color:white">
+    </head>
+    <body style="background-color:white">
         <c:choose>
             <c:when test="${ usuario eq null }">
                 <jsp:forward page="login.jsp" />

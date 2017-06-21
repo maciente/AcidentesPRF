@@ -36,7 +36,7 @@
                         <div class="input-group col-md-8">
                             <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                             <input type="date" class="form-control" name="dataInicial" aria-describedby="basic-addon1">
-                            <input type="date" class="form-control" name="dataFinal" aria-describedby="basic-addon1">
+                            <!--<input type="date" class="form-control" name="dataFinal" aria-describedby="basic-addon1">-->
                         </div>
                     </div>
                     <div class="form-group">

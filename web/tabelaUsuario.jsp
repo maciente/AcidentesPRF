@@ -46,5 +46,4 @@
             <%        session.setAttribute("flag", null);
             %>
         </c:if>
-
         <%@include file="/footer.jsp" %>
