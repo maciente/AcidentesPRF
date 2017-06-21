@@ -24,7 +24,7 @@
                                 <option value="tipoAcidente">Tipo de Acidente</option> 
                                 <option value="classificacao">Classificação do Acidente</option> 
                                 <option value="fase">Fase do Dia</option> 
-                                <option value="cond">Condições Metereológicas</option> 
+                                <option value="cond">Condições Meteorológicas</option> 
                                 <option value="tipoPista">Tipo de Pista</option> 
                                 <option value="tracado">Traçado da Via</option> 
                                 <option value="solo">Uso Solo</option> 

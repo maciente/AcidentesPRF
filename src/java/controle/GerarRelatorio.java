@@ -79,6 +79,7 @@ public class GerarRelatorio extends HttpServlet {
                     mapa.put("Velocidade incompatível", cont[9]);
                     mapa.put("Outras", cont[10]);
                     session.setAttribute("flag", true);
+                    session.setAttribute("titulo", "Causa do Acidente");
                     session.setAttribute("mapa", mapa);
                     RequestDispatcher r = request.getRequestDispatcher("/gerarRelatorio.jsp");
                     r.forward(request, response);
@@ -125,6 +126,7 @@ public class GerarRelatorio extends HttpServlet {
                     mapa.put("Saída de Pista", cont[14]);
                     mapa.put("Tombamento", cont[15]);
                     session.setAttribute("flag", true);
+                    session.setAttribute("titulo", "Tipo de Acidente");
                     session.setAttribute("mapa", mapa);
                     RequestDispatcher r = request.getRequestDispatcher("/gerarRelatorio.jsp");
                     r.forward(request, response);
@@ -147,6 +149,7 @@ public class GerarRelatorio extends HttpServlet {
                     mapa.put("Ignorado", cont[2]);
                     mapa.put("Sem Vítimas", cont[3]);
                     session.setAttribute("flag", true);
+                    session.setAttribute("titulo", "Classificação do Acidente");
                     session.setAttribute("mapa", mapa);
                     RequestDispatcher r = request.getRequestDispatcher("/gerarRelatorio.jsp");
                     r.forward(request, response);
@@ -169,6 +172,7 @@ public class GerarRelatorio extends HttpServlet {
                     mapa.put("Plena noite", cont[2]);
                     mapa.put("Pleno dia", cont[3]);
                     session.setAttribute("flag", true);
+                    session.setAttribute("titulo", "Fase do Dia");
                     session.setAttribute("mapa", mapa);
                     RequestDispatcher r = request.getRequestDispatcher("/gerarRelatorio.jsp");
                     r.forward(request, response);
@@ -201,6 +205,7 @@ public class GerarRelatorio extends HttpServlet {
                     mapa.put("Sol", cont[7]);
                     mapa.put("Vento", cont[8]);
                     session.setAttribute("flag", true);
+                    session.setAttribute("titulo", "Condições Meteorológicas");
                     session.setAttribute("mapa", mapa);
                     RequestDispatcher r = request.getRequestDispatcher("/gerarRelatorio.jsp");
                     r.forward(request, response);
@@ -221,6 +226,7 @@ public class GerarRelatorio extends HttpServlet {
                     mapa.put("Múltipla", cont[1]);
                     mapa.put("Simples", cont[2]);
                     session.setAttribute("flag", true);
+                    session.setAttribute("titulo", "Tipo de Pista");
                     session.setAttribute("mapa", mapa);
                     RequestDispatcher r = request.getRequestDispatcher("/gerarRelatorio.jsp");
                     r.forward(request, response);
@@ -241,6 +247,7 @@ public class GerarRelatorio extends HttpServlet {
                     mapa.put("Curva", cont[1]);
                     mapa.put("Reta", cont[2]);
                     session.setAttribute("flag", true);
+                    session.setAttribute("titulo", "Traçado da Via");
                     session.setAttribute("mapa", mapa);
                     RequestDispatcher r = request.getRequestDispatcher("/gerarRelatorio.jsp");
                     r.forward(request, response);
@@ -259,6 +266,7 @@ public class GerarRelatorio extends HttpServlet {
                     mapa.put("Perímetro Urbano", cont[0]);
                     mapa.put("Perímetro Rural", cont[1]);
                     session.setAttribute("flag", true);
+                    session.setAttribute("titulo", "Uso do Solo");
                     session.setAttribute("mapa", mapa);
                     RequestDispatcher r = request.getRequestDispatcher("/gerarRelatorio.jsp");
                     r.forward(request, response);
