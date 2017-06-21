@@ -45,7 +45,16 @@ public class CondicaoDAO {
     }
 
     public long causaPorData(Date dataInicial, Date dataFinal, String causa) {
-        List result = sessao.createQuery("select count(c.causaAcidente) from Condicao c, Data d where d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "' and c.causaAcidente = '" + causa + "'").list();
+        List result = sessao.createQuery("select count(c.id) from Condicao c, Data d where c.id=d.id and c.causaAcidente = '" + causa + "' and d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "'").list();
+        long valor = 0;
+        if(!result.isEmpty()){
+            valor = (Long)result.get(0);
+        }
+        return valor;
+    }
+    
+    public long tipoAcidPorData(Date dataInicial, Date dataFinal, String tipoAcid) {
+        List result = sessao.createQuery("select count(c.id) from Condicao c, Data d where c.id=d.id and c.tipoAcidente = '" + tipoAcid + "' and d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "'").list();
         long valor = 0;
         if(!result.isEmpty()){
             valor = (Long)result.get(0);
@@ -53,6 +62,60 @@ public class CondicaoDAO {
         return valor;
     }
 
+    public long classificacaoPorData(Date dataInicial, Date dataFinal, String classificacao) {
+        List result = sessao.createQuery("select count(c.id) from Condicao c, Data d where c.id=d.id and c.classificacaoAcidente = '" + classificacao + "' and d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "'").list();
+        long valor = 0;
+        if(!result.isEmpty()){
+            valor = (Long)result.get(0);
+        }
+        return valor;
+    }
+    
+    public long fasePorData(Date dataInicial, Date dataFinal, String fase) {
+        List result = sessao.createQuery("select count(c.id) from Condicao c, Data d where c.id=d.id and c.faseDia = '" + fase + "' and d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "'").list();
+        long valor = 0;
+        if(!result.isEmpty()){
+            valor = (Long)result.get(0);
+        }
+        return valor;
+    }
+    
+    public long condPorData(Date dataInicial, Date dataFinal, String cond) {
+        List result = sessao.createQuery("select count(c.id) from Condicao c, Data d where c.id=d.id and c.condMetereologica = '" + cond + "' and d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "'").list();
+        long valor = 0;
+        if(!result.isEmpty()){
+            valor = (Long)result.get(0);
+        }
+        return valor;
+    }
+    
+    public long tipoPistaPorData(Date dataInicial, Date dataFinal, String tipoPista) {
+        List result = sessao.createQuery("select count(c.id) from Condicao c, Data d where c.id=d.id and c.tipoPista = '" + tipoPista + "' and d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "'").list();
+        long valor = 0;
+        if(!result.isEmpty()){
+            valor = (Long)result.get(0);
+        }
+        return valor;
+    }
+    
+    public long tracadoPorData(Date dataInicial, Date dataFinal, String tracado) {
+        List result = sessao.createQuery("select count(c.id) from Condicao c, Data d where c.id=d.id and c.tracadoVia = '" + tracado + "' and d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "'").list();
+        long valor = 0;
+        if(!result.isEmpty()){
+            valor = (Long)result.get(0);
+        }
+        return valor;
+    }
+    
+    public long usoSoloPorData(Date dataInicial, Date dataFinal, String usoSolo) {
+        List result = sessao.createQuery("select count(c.id) from Condicao c, Data d where c.id=d.id and c.usoSolo = '" + usoSolo + "' and d.dataAcidente between '" + dataInicial + "' and '" + dataFinal + "'").list();
+        long valor = 0;
+        if(!result.isEmpty()){
+            valor = (Long)result.get(0);
+        }
+        return valor;
+    }
+    
     public Condicao buscarPorId(int id) {
         ArrayList<Condicao> condicoes = (ArrayList<Condicao>) sessao.createQuery("from Condicao where id = " + id).list();
         Condicao condicao = new Condicao();
