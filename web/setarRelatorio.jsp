@@ -35,8 +35,8 @@
                         <label class="col-md-3 control-label">Data</label>
                         <div class="input-group col-md-8">
                             <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-                            <input type="date" class="form-control" name="dataInicial" aria-describedby="basic-addon1">
-                            <input type="date" class="form-control" name="dataFinal" aria-describedby="basic-addon1">
+                            <input type="date" class="form-control" name="dataInicial" aria-describedby="basic-addon1" required="required">
+                            <input type="date" class="form-control" name="dataFinal" aria-describedby="basic-addon1" required="required">
                         </div>
                     </div>
                     <div class="form-group">
