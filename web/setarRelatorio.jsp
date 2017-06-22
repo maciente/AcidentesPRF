@@ -40,8 +40,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-2 col-md-offset-9">
-                            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Gerar</button>
+                        <div class="col-md-2 col-md-offset-6">
+                            <button type="submit" name="opcao" value="grafico" class="btn btn-default">
+                                <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Gerar Gráfico
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" name="opcao" value="tabela" class="btn btn-default">
+                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Ver Números
+                            </button>
                         </div>
                     </div>
                 </form>
